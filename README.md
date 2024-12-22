@@ -6,19 +6,19 @@ import math
 # create graph data (instanciate graph)
 figure, axes = plt.subplots()
 
-# set titles
-axes.set_title('Bactérie vivante dans les matières fécales')
-axes.set_ylabel('Bactérie vivante en g')
-axes.set_xlabel('nbr de jours')
+# nommer les titres et les axes 
+axes.set_title('Bactéries vivantes dans les matières fécales')
+axes.set_ylabel('Bactéries vivantes en g')
+axes.set_xlabel('Nombre de jours avant et après le jour de lavage des traitements')
 
 graph = "fecal"
 
-# init data
+# initialiser les données
 for mouse in range(17,33):
     x  = []
     y  = []
 
-    # fill data from file
+    # remplir les données issues du document fourni
     fIN = open('data_filtrer.csv', 'r')
     line = fIN.readline()
 
@@ -38,8 +38,8 @@ for mouse in range(17,33):
 
         # filter lines
         if mouse_ID == mouse and sample_type == graph :
-            x.append(day)
-            y.append(bacteria)        
+            x.append(jour)
+            y.append(bacteries)        
 
     fIN.close()
 
